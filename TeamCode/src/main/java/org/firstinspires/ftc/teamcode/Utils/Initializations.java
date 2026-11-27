@@ -1,8 +1,5 @@
 package org.firstinspires.ftc.teamcode.Utils;
 
-import static org.firstinspires.ftc.teamcode.Hardware.HardwareUtils.hardwareMap;
-import static org.firstinspires.ftc.teamcode.Hardware.HardwareUtils.telemetry;
-
 import com.qualcomm.hardware.lynx.LynxModule;
 import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.hardware.HardwareMap;
@@ -12,19 +9,20 @@ import org.firstinspires.ftc.teamcode.Hardware.Hardware;
 import org.firstinspires.ftc.teamcode.Mechanisms.Intake;
 import org.firstinspires.ftc.teamcode.Mechanisms.Movement;
 import org.firstinspires.ftc.teamcode.Mechanisms.Stopper;
+import org.firstinspires.ftc.teamcode.TeleOps.ActionManager;
 
 import java.util.List;
 
 public class Initializations {
 
-    public static void assignColor(AllianceColor.Colors allianceColor){
-        AllianceColor.colors = allianceColor;
-        AllianceColor.AssignAlliance();
-    }
-
-    public static void initAllianceGoals(){
-        AllianceColor.AssignAlliance();
-    }
+//    public static void assignColor(AllianceColor.Colors allianceColor){
+//        AllianceColor.colors = allianceColor;
+//        AllianceColor.AssignAlliance();
+//    }
+//
+//    public static void initAllianceGoals(){
+//        AllianceColor.AssignAlliance();
+//    }
 
 //    public static void initAuto(HardwareMap hardwareMap, Telemetry telemetry, Pose startingPose){
 //
@@ -47,14 +45,15 @@ public class Initializations {
 //        FieldMap.resetGoalOffsets();
 //    }
 //
-   public static void initTeleOp(Gamepad gamepad1, Gamepad gamepad2){
+   public static void initTeleOp(HardwareMap hardwareMap, Telemetry telemetry, Gamepad gamepad1, Gamepad gamepad2){
 
-    setCachingMode(hardwareMap, LynxModule.BulkCachingMode.AUTO);
-    Hardware.init(hardwareMap,telemetry);
-    Hardware.config();
+//    setCachingMode(hardwareMap, LynxModule.BulkCachingMode.AUTO);
+        Hardware.init(hardwareMap,telemetry);
+        Hardware.config();
        Movement.init();
        Intake.init();
        Stopper.init();
+       ActionManager.assignGamepads(gamepad1,gamepad2);
 
    }
 

@@ -25,10 +25,10 @@ public class Vector2D_EX {
         this.x = x;
         this.y = y;
     }
-    public Vector2D_EX(Vector pedroVector) {
-        this.x = pedroVector.getXComponent();
-        this.y = pedroVector.getYComponent();
-    }
+//    public Vector2D_EX(Vector pedroVector) {
+//        this.x = pedroVector.getXComponent();
+//        this.y = pedroVector.getYComponent();
+//    }
 
     public double getX() {
         return x;
